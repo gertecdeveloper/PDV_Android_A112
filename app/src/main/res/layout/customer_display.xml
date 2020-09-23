@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_nenhum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Nenhum" />
+                <RadioButton android:id="@+id/radio_unidade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unidade" />
+                <RadioButton android:id="@+id/radio_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    />
+                <RadioButton android:id="@+id/radio_pago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pago"
+                    />
+                <RadioButton android:id="@+id/radio_troco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Troco"
+                    />
+
+
+            </RadioGroup>
+            <EditText
+                android:id="@+id/et_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789."
+                android:hint="@string/dados_display"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textSize="20dp" />
+
+
+            <Button
+                android:id="@+id/btn_apagar_display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apagar_display"
+                android:onClick="ApagarDisplay"
+                />
+
+            <Button
+                android:id="@+id/btn_enviar_dados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enviar_dados"
+                android:onClick="EnviarDados"
+                />
+
+        </LinearLayout>
+
+</LinearLayout>
