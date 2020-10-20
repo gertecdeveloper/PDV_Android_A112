@@ -4,14 +4,18 @@
     package="com.gertec.exemplosgertec">
 
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/gertec_one"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/gertecx_one"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity android:name=".fala.FalaActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +24,26 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Impressora"/>
-        <activity android:name=".DisplayActivity"/>
+        <activity android:name=".Impressora" />
+        <activity android:name=".DisplayActivity" />
+        <activity android:name=".ExemploNFCIdRW.NfcExemplo" />
+        <activity android:name=".CodigoBarras.LeituraCodigoActivity" />
+        <activity android:name=".ExemploTEF.Tef" />
+        <activity android:name=".ExemploSAT.SatPages.MenuSat" />
+        <activity android:name=".ExemploSAT.SatPages.Teste" />
+        <activity android:name=".ExemploSAT.SatPages.Rede" />
+        <activity android:name=".ExemploSAT.SatPages.Ativacao" />
+        <activity android:name=".ExemploSAT.SatPages.Associar" />
+        <activity android:name=".ExemploSAT.SatPages.Ferramentas" />
+        <activity android:name=".ExemploSAT.SatPages.Alterar" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <service android:name=".CodigoBarras.service.ReadCodeService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
 
     </application>
 
