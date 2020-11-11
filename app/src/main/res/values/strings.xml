@@ -39,6 +39,11 @@
     <string name="font">Font:</string>
 
 
+    <string name="kiosk_title">Kiosk Mode</string>
+    <string name="stop_lock_task">Stop Kiosk Mode</string>
+    <string name="start_lock_task">Start Kiosk Mode</string>
+
+
     <string name="dados_display">Dados Display</string>
     <string name="enviar_dados">Enviar Dados</string>
     <string name="apagar_display">Apagar Display</string>

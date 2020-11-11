@@ -1,3 +1,5 @@
+include ':MSitef'
+include ':KioskMode'
 include ':SatFuncoes'
 include ':TextToSpeaks'
 include ':app'

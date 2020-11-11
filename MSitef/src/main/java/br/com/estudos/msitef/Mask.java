@@ -1,4 +1,15 @@
-package com.gertec.exemplosgertec.ExemploTEF;
+/*======================================================================================
+  Arquivo       : Mask.java
+  Projeto       : Modo Quiosque
+  Plataforma    : Android
+  Equipamentos  : Dispositivos Android
+  Data Criação  : 05/Nov/2020
+  Autor         : Geovani Nogueira
+
+  Descrição   : Mask.java:
+                   - Adiciona uma mascara em um TEXT.
+  =========================================================================================*/
+package br.com.estudos.msitef;
 
 import android.text.Editable;
 import android.text.TextWatcher;

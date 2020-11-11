@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".fala.FalaActivity"></activity>
+        <activity android:name=".sensor.SensorActivity"></activity>
+        <activity android:name="KioskMode.KioskActivity" />
+        <activity android:name=".fala.FalaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Impressora" />
         <activity android:name=".DisplayActivity" />
-        <activity android:name=".ExemploNFCIdRW.NfcExemplo" />
+        <activity android:name=".ExemploNFCIdRW.NfcExemplo"></activity>
         <activity android:name=".CodigoBarras.LeituraCodigoActivity" />
         <activity android:name=".ExemploTEF.Tef" />
         <activity android:name=".ExemploSAT.SatPages.MenuSat" />
@@ -41,10 +41,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <service android:name=".CodigoBarras.service.ReadCodeService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="true"/>
-
+        <service
+            android:name=".service.ReadCodeService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

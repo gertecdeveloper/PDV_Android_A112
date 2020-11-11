@@ -1,11 +1,12 @@
 package br.com.estudos.texttospeaks;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import android.util.Log;
 
 import java.util.Locale;
+import java.util.Set;
 
 public class TextToFala {
 
@@ -48,5 +49,25 @@ public class TextToFala {
     public void speechText(String text) {
         int speakRet =  speech.speak(text, TextToSpeech.QUEUE_ADD, null);
         Log.d(TAG, "speechText() speakRet == "+speakRet);
+    }
+
+    public Set<Locale> getAvailableLanguages(){
+        return speech.getAvailableLanguages();
+    }
+
+    public Set<Voice> getVoice(){
+        return speech.getVoices();
+    }
+
+    public Set<Voice> getVoices(){
+        return speech.getVoices();
+    }
+
+    public int Stop(){
+        return speech.stop();
+    }
+
+    public boolean isSpeaking(){
+        return speech.isSpeaking();
     }
 }

@@ -2,8 +2,6 @@ package com.gertec.exemplosgertec.CodigoBarras;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.job.JobService;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -12,16 +10,15 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.gertec.exemplosgertec.CodigoBarras.service.LedUtil;
-import com.gertec.exemplosgertec.CodigoBarras.service.ReadCodeService;
-import com.gertec.exemplosgertec.CodigoBarras.service.ServiceResultReceiver;
 import com.gertec.exemplosgertec.R;
+import com.gertec.exemplosgertec.service.ReadCodeService;
+import com.gertec.exemplosgertec.service.ServiceResultReceiver;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.gertec.exemplosgertec.CodigoBarras.service.ReadCodeService.SHOW_RESULT;
-
+import static com.gertec.exemplosgertec.service.ReadCodeService.SHOW_RESULT;
 
 public class LeituraCodigoActivity extends AppCompatActivity implements ServiceResultReceiver.Receiver {
 
@@ -68,7 +65,7 @@ public class LeituraCodigoActivity extends AppCompatActivity implements ServiceR
         btnLigarLed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LedUtil.setOnLed();
+                LedUtil.setRedLed();
             }
         });
 

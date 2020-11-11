@@ -1,4 +1,4 @@
-package com.gertec.exemplosgertec.CodigoBarras.service;
+package com.gertec.exemplosgertec.service;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 import com.gertec.exemplosgertec.R;
 import java.util.concurrent.CountDownLatch;
+
+import wangpos.sdk4.libbasebinder.Core;
 import wangpos.sdk4.libbasebinder.Scaner;
 
 public class ReadCodeService extends JobIntentService {
@@ -32,6 +34,8 @@ public class ReadCodeService extends JobIntentService {
     private static final String ACTION_READ_CODE = "action.READ_CODE";
 
     private static Scaner scaner;
+
+    private static Core core;
 
     public static void enqueueWork(Context context, ServiceResultReceiver workerResultReceiver) {
         Intent intent = new Intent(context, ReadCodeService.class);
@@ -100,6 +104,8 @@ public class ReadCodeService extends JobIntentService {
         return super.onStopCurrentWork();
     }
 
+
+
     private String scanner() throws RemoteException {
 
         int ret = -1;
@@ -114,6 +120,7 @@ public class ReadCodeService extends JobIntentService {
         }
 
         ret = scaner.scanSingle(daBytes, dataLen);
+
         countDownLatch.countDown();
         if(ret == 0){
             if(ret == 0 && daBytes[0] == 0){

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -152,7 +153,26 @@ public class Teste extends Activity {
                 retornoOperaca = satFunctions.enviarTesteFim(txtCodAtivacao.getText().toString(), gerador.nextInt(999999));
                 break;
             case "EnviarTesteVendas":
-                retornoOperaca = satFunctions.enviarTesteVendas(txtCodAtivacao.getText().toString(), gerador.nextInt(999999));
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String ret = "";
+                        int count = 0;
+                        while (count < 1000) {
+                            Log.d("Geovani", String.format("Testes: %d", count));
+                            ret = satFunctions.enviarTesteVendas(txtCodAtivacao.getText().toString(), gerador.nextInt(999999));
+                            String finalRet = ret;
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    txtRetorno.setText(txtRetorno.getText().toString() + '\n' + finalRet);
+                                }
+                            });
+                            count++;
+                        }
+                    }
+                }).start();
+                // retornoOperaca = satFunctions.enviarTesteVendas(txtCodAtivacao.getText().toString(), gerador.nextInt(999999));
                 break;
             case "CancelarUltimaVenda":
                 retornoOperaca = satFunctions.cancelarUltimaVenda(txtCodAtivacao.getText().toString(), inputText, gerador.nextInt(999999));
@@ -164,23 +184,23 @@ public class Teste extends Activity {
                 retornoOperaca = "";
                 break;
         }
-        GlobalValues.codAtivacao = txtCodAtivacao.getText().toString();
+        //GlobalValues.codAtivacao = txtCodAtivacao.getText().toString();
 
-        RetornoSat retornoSat = OperacaoSat.invocarOperacaoSat(operacao, retornoOperaca);
-        /*
-         * Está verificação(abaixo) tem como objetivo capturar a "Chave de Consulta" retornado na operação EnviarTesteVendas
-         * O valor é armazenado em uma variavel global e quando o usuario abre a tela para cancelar venda, o campo (Chave de Cancelamento) já fica preenchido
-         */
-        if (operacao.equals("EnviarTesteVendas")) {
-            GlobalValues.ultimaChaveVenda = retornoSat.getChaveConsulta();
-//             = GlobalValues.valorCfe;
-        }
-            //* Está função [OperacaoSat.formataRetornoSat] recebe como parâmetro a operação realizada e um objeto do tipo RetornoSat
-        //* Retorna uma String com os valores obtidos do retorno da Operação já formatados e prontos para serem exibidos na tela
-        // Recomenda-se acessar a função e entender como ela funciona
-        String retornoFormatado = OperacaoSat.formataRetornoSat(retornoSat);
-        // ComponentsGertec.dialogoRetorno(retornoFormatado, this);
-        txtRetorno.setText(retornoFormatado);
+//        RetornoSat retornoSat = OperacaoSat.invocarOperacaoSat(operacao, retornoOperaca);
+//        /*
+//         * Está verificação(abaixo) tem como objetivo capturar a "Chave de Consulta" retornado na operação EnviarTesteVendas
+//         * O valor é armazenado em uma variavel global e quando o usuario abre a tela para cancelar venda, o campo (Chave de Cancelamento) já fica preenchido
+//         */
+//        if (operacao.equals("EnviarTesteVendas")) {
+//            GlobalValues.ultimaChaveVenda = retornoSat.getChaveConsulta();
+////             = GlobalValues.valorCfe;
+//        }
+//            //* Está função [OperacaoSat.formataRetornoSat] recebe como parâmetro a operação realizada e um objeto do tipo RetornoSat
+//        //* Retorna uma String com os valores obtidos do retorno da Operação já formatados e prontos para serem exibidos na tela
+//        // Recomenda-se acessar a função e entender como ela funciona
+//        String retornoFormatado = OperacaoSat.formataRetornoSat(retornoSat);
+//        // ComponentsGertec.dialogoRetorno(retornoFormatado, this);
+//        txtRetorno.setText(retornoFormatado);
 
     }
 }

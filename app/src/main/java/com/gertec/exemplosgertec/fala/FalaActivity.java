@@ -2,6 +2,7 @@ package com.gertec.exemplosgertec.fala;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.speech.tts.Voice;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,12 +10,18 @@ import android.widget.Toast;
 
 import com.gertec.exemplosgertec.R;
 
+import java.util.Locale;
+import java.util.Set;
+
 import br.com.estudos.texttospeaks.TextToFala;
 
 public class FalaActivity extends AppCompatActivity {
 
     Button btnFrase1, btnFrase2, btnFrase3, btnFrase4;
     EditText txtFrase;
+
+    Set<Locale> localeSet;
+    Set<Voice> voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +69,5 @@ public class FalaActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 }

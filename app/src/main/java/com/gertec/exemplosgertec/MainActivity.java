@@ -15,10 +15,12 @@ import com.gertec.exemplosgertec.ExemploNFCIdRW.NfcExemplo;
 import com.gertec.exemplosgertec.ExemploSAT.SatPages.MenuSat;
 import com.gertec.exemplosgertec.ExemploTEF.Tef;
 
-import com.gertec.exemplosgertec.CodigoBarras.LeituraCodigoActivity;
 import com.gertec.exemplosgertec.fala.FalaActivity;
+import com.gertec.exemplosgertec.sensor.SensorActivity;
 
 import java.util.ArrayList;
+
+import KioskMode.KioskActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
     //ACtivities Comuns
     public static final String  ACTIVITY_SAT = "Sat";
     public static final String  ACTIVITY_TEF = "Tef";
-
+    public static final String  ACTIVITY_KIOSKMODE = "Modo Quiosque";
+    public static final String  ACTIVITY_SENSOR_PRESENSA = "Sensor de Presença";
 
     ArrayList<Projeto> projetos = new ArrayList<Projeto>();
     ListView lvProjetos;
 
     TextView txtProject;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
         txtProject.setText(getVersion());
 
-
         if(Model.equals(GLASS_MODEL)) {
             projetos.add(new Projeto(ACTIVITY_IMPRESSAO, R.drawable.print));
             projetos.add(new Projeto(ACTIVITY_DISPLAY, R.drawable.customerdisplay));
         }else { //G-BOT - Implementação Futura
             projetos.add(new Projeto(ACTIVITY_CODIGO_BARRAS, R.drawable.barcode));
             projetos.add(new Projeto(ACTIVITY_NFCx, R.drawable.nfc2));
-            projetos.add(new Projeto(ACTIVITY_FALA, R.drawable.speaker));
+            projetos.add(new Projeto(ACTIVITY_SENSOR_PRESENSA, R.drawable.sensor));
         }
+
+        projetos.add(new Projeto(ACTIVITY_FALA, R.drawable.speaker));
+        projetos.add(new Projeto(ACTIVITY_KIOSKMODE, R.drawable.kiosk));
         projetos.add(new Projeto(ACTIVITY_TEF, R.drawable.tef));
         projetos.add(new Projeto(ACTIVITY_SAT, R.drawable.icon_sat));
 
@@ -114,8 +118,14 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, FalaActivity.class);
                         break;
 
+                    case ACTIVITY_KIOSKMODE:
+                        intent = new Intent(MainActivity.this, KioskActivity.class);
+                        break;
 
-                }//switch (projeto.getNome())
+                    case ACTIVITY_SENSOR_PRESENSA:
+                        intent = new Intent(MainActivity.this, SensorActivity.class);
+                        break;
+                }
 
                 if(intent != null){
                     startActivity(intent);
@@ -124,4 +134,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.nfc.tech.MifareClassic;
+import android.nfc.tech.MifareUltralight;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +25,9 @@ import com.gertec.exemplosgertec.ExemploNFCIdRW.fragment.NFCReadFragment;
 import com.gertec.exemplosgertec.ExemploNFCIdRW.fragment.NFCWriteFragment;
 import com.gertec.exemplosgertec.ExemploNFCIdRW.fragment.NFCWriteReadFragment;
 import com.gertec.exemplosgertec.R;
+
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 public class NfcExemplo extends FragmentActivity {
 

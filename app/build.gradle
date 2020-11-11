@@ -7,13 +7,14 @@ android {
         applicationId "com.gertec.exemplosgertec"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 804
+        versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
+
+        release { 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -34,10 +35,17 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':TextToSpeaks')
+
     implementation project(path: ':SatFuncoes')
+
+    implementation project(path: ':MSitef')
+
+    implementation project(path: ':KioskMode')
+
 
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
+
 
     testImplementation 'junit:junit:4.13-beta-3'
     androidTestImplementation 'androidx.test:runner:1.3.0-alpha02'
@@ -49,8 +57,5 @@ dependencies {
 	
 	//Lib Glass
 	implementation files('libs/printersdk-1.0.4.jar')
-
-    // Lib para o TEF
-    implementation 'com.google.code.gson:gson:2.8.6'
 
 }

@@ -1,4 +1,15 @@
-package com.gertec.exemplosgertec.ExemploTEF;
+/*======================================================================================
+  Arquivo       : MoneyTextWatcher.java
+  Projeto       : Modo Quiosque
+  Plataforma    : Android
+  Equipamentos  : Dispositivos Android
+  Data Criação  : 05/Nov/2020
+  Autor         : Geovani Nogueira
+
+  Descrição   : MoneyTextWatcher.java:
+                   - Adiciona uma mascara de valor em um Text.
+  =========================================================================================*/
+package br.com.estudos.msitef;
 
 import android.text.Editable;
 import android.text.TextWatcher;

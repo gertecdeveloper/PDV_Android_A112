@@ -2,6 +2,7 @@ package br.com.estudos.satfuncoes;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -19,7 +20,7 @@ import java.io.InputStreamReader;
 public class SatFunctions  {
 
     public static SatGerLib serialComms;
-    private String arquivoXmlVendas = "arq_venda"; // Armazena o nome do arquivo que se encontra no diretorio res/raw
+    private String arquivoXmlVendas = "arq_venda_modificado_corrigido"; // Armazena o nome do arquivo que se encontra no diretorio res/raw
     private String arquivoXmlCancelamento = "arq_cancelamento"; // AArmazena o nome do arquivo que se encontra no diretorio res/raw
     private Context myContext;
     public SatFunctions(Context context){
@@ -211,6 +212,7 @@ public class SatFunctions  {
                 line = br.readLine();
             }
             vendaData = sb.toString();
+
             return retornoDaFuncaoSat(serialComms.EnviarDadosVenda(random, codAtivacao, vendaData));
         } catch (Exception e) {
             return e.getMessage();

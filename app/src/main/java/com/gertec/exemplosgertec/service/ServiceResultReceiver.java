@@ -1,4 +1,4 @@
-package com.gertec.exemplosgertec.CodigoBarras.service;
+package com.gertec.exemplosgertec.service;
 
 import android.os.Bundle;
 import android.os.Handler;

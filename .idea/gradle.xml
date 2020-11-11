@@ -11,6 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/KioskMode" />
+            <option value="$PROJECT_DIR$/MSitef" />
             <option value="$PROJECT_DIR$/SatFuncoes" />
             <option value="$PROJECT_DIR$/TextToSpeaks" />
             <option value="$PROJECT_DIR$/app" />
