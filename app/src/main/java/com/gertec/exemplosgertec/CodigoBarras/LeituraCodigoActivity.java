@@ -51,6 +51,7 @@ public class LeituraCodigoActivity extends AppCompatActivity implements ServiceR
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ReadCodeService.START_SERVICES = true;
                 StartLeitura(LeituraCodigoActivity.this, mServiceResultReceiver);
             }
         });
@@ -65,7 +66,7 @@ public class LeituraCodigoActivity extends AppCompatActivity implements ServiceR
         btnLigarLed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LedUtil.setRedLed();
+                LedUtil.setOnLed();
             }
         });
 
@@ -85,11 +86,19 @@ public class LeituraCodigoActivity extends AppCompatActivity implements ServiceR
     @Override
     protected void onStart() {
         super.onStart();
+        ReadCodeService.START_SERVICES = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ReadCodeService.START_SERVICES = false;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ReadCodeService.START_SERVICES = false;
     }
 
     @Override

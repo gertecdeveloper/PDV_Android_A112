@@ -77,12 +77,12 @@ public class ReadCodeService extends JobIntentService {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("data",retorno);
                                 mResultReceiver.send(SHOW_RESULT, bundle);
-                                Thread.sleep(1000);
+                                // Thread.sleep(1000);
+                                // countDownLatch.await();
                             }
-                            countDownLatch.await();
+
+
                         } catch (RemoteException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
@@ -91,6 +91,8 @@ public class ReadCodeService extends JobIntentService {
             }
         }
     }
+
+
 
     @Override
     public void onDestroy() {
